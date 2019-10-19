@@ -1,0 +1,22 @@
+"""
+Created on Sat Oct 19 11:12:51 2019
+
+@author: Debdipta
+"""
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = pd.read_csv('Nifty201811HminusLmin.csv', sep=',', header=None, index_col =0)
+
+data.plot(kind='hist', bins=range(-25, 25), color="royalblue")
+plt.ylabel('Probability Density')
+plt.xlabel('High - Low')
+plt.title('Probability distribution of 1 min Nifty - 2018')
+# Show the major grid lines with dark grey lines
+plt.grid(b=True, which='major', color='#666666', linestyle='-')
+
+# Show the minor grid lines with very faint and almost transparent grey lines
+plt.minorticks_on()
+plt.grid(b=True, which='minor', color='#999999', linestyle='-', alpha=0.2)
+plt.show()
